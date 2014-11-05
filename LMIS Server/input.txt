@@ -1,0 +1,29 @@
+// CMSC 335, Spring 2014
+// Alex Euzent
+// April 22, 2014
+// Books format:
+//    b:<index>:<title>:<genre>:<price>:<#_of_copies>:<author_index>
+b : 10001 : Java Basics : Science : 11.55 : 6 : 20001
+b : 10002 : Advanced Java : Science : 10.99 : 4 : 20001
+b : 10003 : Jurassic Park : Fiction : 15.99 : 8 : 20002
+b : 10004 : Sphere : Fiction : 12.99 : 3 : 20002
+b : 10005 : The Andromeda Strain : Fiction : 10.99 : 7 : 20002
+b : 10006 : The Hitchhiker's Guide to the Galaxy : Fiction : 15.63 : 2 : 20003
+b : 10007 : So Long and Thanks for All the Fish : Fiction : 7.25 : 5 : 20003
+b : 10008 : The Restaurant at the End of the Universe : Fiction : 15.61 : 1 : 20003
+b : 10009 : Intro to C++ : Science : 68.99 : 11 : 20004
+b : 10010 : The Life and Times of Jane Doe : Biography : 23.99 : 1 : 20004
+
+// Authors format:
+//    a:<index>:<name>:<address>
+a : 20001 : John Smith : Computers St. 50 Seattle 
+a : 20002 : Michael Crichton : Los Angeles, California
+a : 20003 : Douglas Adams : Santa Barbara, California
+a : 20004 : Johnny McFakeAuthor : 123 John Doe St
+
+// Journal format:
+//	  j:<index>:<title>:<volume>:<issue>:<publication_date>:<#_of_copies>:<author_index>
+j : 30001 : Modern Datatypes : 6 : 3 : 02/18/2004 : 2 : 20004
+j : 30002 : Uniform Coding Standards : 12 : 7 : 10/05/1998 : 1 : 20004
+j : 30003 : Sci-Fi Monthly : 36 : 9 : 06/28/2011 : 3 : 20003
+j : 30004 : Funny Fiction : 99 : 18 : 12/20/1985 : 6 : 20003
