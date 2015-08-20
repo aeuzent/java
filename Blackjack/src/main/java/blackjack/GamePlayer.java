@@ -154,7 +154,7 @@ public class GamePlayer{
 	 * @param card
 	 */
 	public void hit(Card card){
-		hand.getCard(card);
+		hand.addCard(card);
 	}
 	
 	

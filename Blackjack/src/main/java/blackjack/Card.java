@@ -44,11 +44,27 @@ public class Card{
             rank = in % 13;
             cardName = rankNames[rank] + " of " + suitNames[suit];
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Cannot create card from " + in);
         }
 	}
-	
-	
+
+    /**
+     * Constructor for Card
+     */
+    public Card(int rank, int suit) throws IllegalArgumentException{
+        if(rank>=0 && rank < 13) {
+            if(suit>=0 && suit < 4) {
+                this.suit = suit;
+                this.rank = rank;
+                cardName = rankNames[this.rank] + " of " + suitNames[this.suit];
+            } else {
+                throw new IllegalArgumentException("Suit " + suit + "is invalid");
+            }
+        } else {
+            throw new IllegalArgumentException("Rank " + rank + "is invalid");
+        }
+    }
+
 	/**
 	 * Accessor for card rank
 	 * @return

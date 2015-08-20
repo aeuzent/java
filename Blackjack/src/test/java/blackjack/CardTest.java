@@ -26,27 +26,63 @@ public class CardTest extends TestCase {
     public void testToString() throws Exception {
         Card c = new Card(48);
         assertTrue("Expected \"Ten of Spades\", got " + c.toString(), c.toString().equals("Ten of Spades"));
+
+        Card d = new Card(Card.SIX, Card.CLUBS);
+        assertTrue("Expected \"Six of Clubs\", got " + d.toString(), d.toString().equals("Six of Clubs"));
     }
 
     @Test
-    public void testInvalidHiCards() throws Exception {
+    public void testInvalidCards() throws Exception {
         boolean thrown = false;
         try {
             Card c = new Card(53);
         } catch (IllegalArgumentException e) {
             thrown = true;
         }
-        assertTrue(thrown);
-    }
-
-    @Test
-    public void testInvalidLoCards() throws Exception {
-        boolean thrown = false;
+        assertTrue("53 tested as valid and should not have",thrown);
+        thrown = false;
         try {
             Card c = new Card(-2);
         } catch (IllegalArgumentException e) {
             thrown = true;
         }
-        assertTrue(thrown);
+        assertTrue("-2 tested as valid and should not have",thrown);
+    }
+
+
+    @Test
+    public void testInvalidRank() throws Exception {
+        boolean thrown = false;
+        try {
+            Card c = new Card(-1, Card.DIAMONDS);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        assertTrue("Rank of -1 tested as valid and should not have",thrown);
+        thrown = false;
+        try {
+            Card c = new Card(15, Card.DIAMONDS);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        assertTrue("Rank of 15 tested as valid and should not have",thrown);
+    }
+
+    @Test
+    public void testInvalidSuit() throws Exception {
+        boolean thrown = false;
+        try {
+            Card c = new Card(Card.SEVEN, -1);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        assertTrue("Suit of -1 tested as valid and should not have",thrown);
+        thrown = false;
+        try {
+            Card c = new Card(Card.EIGHT, 6);
+        } catch (IllegalArgumentException e) {
+            thrown = true;
+        }
+        assertTrue("Suit of 6 tested as valid and should not have",thrown);
     }
 }

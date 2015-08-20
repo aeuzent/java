@@ -26,7 +26,7 @@ public class Hand{
 	 * Adds card to hand
 	 * @param card
 	 */
-	public void getCard(Card card){
+	public void addCard(Card card){
 
 		hand.add(card);
 		runHandSum();
@@ -41,46 +41,46 @@ public class Hand{
 		int aces = 0;
 		for(Card card : hand){
 			switch(card.getRank()){
-				case 0: //Ace
+				case Card.ACE: //Ace
 					aces++;
 					break;
 					
-				case 1: //Two
+				case Card.TWO: //Two
 					handSum += 2;
 					break;
 			
-				case 2: //Three
+				case Card.THREE: //Three
 					handSum += 3;
 					break;
 					
-				case 3: //Four
+				case Card.FOUR: //Four
 					handSum += 4;
 					break;
 					
-				case 4: //Five
+				case Card.FIVE: //Five
 					handSum += 5;
 					break;
 					
-				case 5: //Six
+				case Card.SIX: //Six
 					handSum += 6;
 					break;
 					
-				case 6: //Seven
+				case Card.SEVEN: //Seven
 					handSum += 7;
 					break;
 			
-				case 7: //Eight
+				case Card.EIGHT: //Eight
 					handSum += 8;
 					break;
 					
-				case 8: //Nine
+				case Card.NINE: //Nine
 					handSum += 9;
 					break;
 					
-				case 9: //Ten
-				case 10: //Jack
-				case 11: //Queen
-				case 12: //King
+				case Card.TEN: //Ten
+				case Card.JACK: //Jack
+				case Card.QUEEN: //Queen
+				case Card.KING: //King
 					handSum += 10;
 					break;			
 			}
