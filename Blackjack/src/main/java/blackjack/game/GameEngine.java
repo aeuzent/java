@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 /**
  * @filename GameEngine.java
  * @author Alex Euzent

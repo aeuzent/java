@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 
 import junit.framework.TestCase;
 import org.junit.Test;

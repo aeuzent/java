@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 //This source is meant to be a guide on how to use the
 //GameEngine class to run a blackjack game. The GameEngine
 //class is meant to be a board thats state can be read 

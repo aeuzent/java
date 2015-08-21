@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 /**
  * @filename GamePlayer.java
  * @author Alex Euzent
@@ -140,9 +140,9 @@ public class GamePlayer{
 	 */
 	public boolean commitBet(){
 		boolean done = false;
-		int newBet = currBet;
-		if(score - newBet >= 0){
-			score -= newBet;
+		if(score - currBet >= 0){
+			activeBet = currBet;
+            score = score - activeBet;
 			done = true;
 		}
 		return done;
@@ -162,7 +162,8 @@ public class GamePlayer{
 	 * Increases score for a regular win
 	 */
 	public void win(){
-		score += activeBet*2;
+		score = score + activeBet*2;
+        activeBet = 0;
 	}
 	
 	
@@ -171,6 +172,7 @@ public class GamePlayer{
 	 */
 	public void winBig(){
 		score += activeBet*2.5;
+        activeBet = 0;
 	}
 	
 	
@@ -179,6 +181,7 @@ public class GamePlayer{
 	 */
 	public void refund(){
 		score += activeBet;
+        activeBet = 0;
 	}
 	
 	
@@ -189,6 +192,7 @@ public class GamePlayer{
 	 */
 	public ArrayList<Card> endRound(){
 		ArrayList<Card> temp = new ArrayList<Card>(hand.clearHand());
+        activeBet = 0;
 		return temp;
 	}
 	

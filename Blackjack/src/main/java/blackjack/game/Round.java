@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 /**
  * @filename Round.java
  * @author Alex Euzent

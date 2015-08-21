@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 /**
  * @filename Hand.java
  * @author Alex Euzent

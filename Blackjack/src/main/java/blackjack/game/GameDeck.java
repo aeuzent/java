@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 /**
  * @filename GameDeck.java
  * @author Alex Euzent

@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.game;
 
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -39,9 +39,12 @@ public class HandTest extends TestCase {
             Card c = new Card(x);
             h.addCard(c);
         }
-        h.clearHand();
+        ArrayList<Card> trash = h.clearHand();
         ArrayList<Card> out = h.showCards();
-        assertEquals("Not all cards in hand",0, out.size());
+        boolean result = false;
+        if(trash.size() == 6 && out.size() == 0)
+            result = true;
+        assertTrue("Hand did not clear properly",result);
     }
 
     @Test
