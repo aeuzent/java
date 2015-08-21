@@ -44,16 +44,13 @@ public class Round{
 	public boolean startRound(){
 		boolean ante = player.anteUp();
 		if(ante){
-			if(roundCount > 0){
-				collectTrash();
-			}			
 			roundCount++;
 			firstTurn = true;
 			playerTurn = true;
 			tie = false;
 			lastMoves = moves; 
 			moves = 0;
-			noWinner = true;
+            noWinner = true;
 			playerWin = false;
 			deal();
 		} else {
@@ -84,6 +81,7 @@ public class Round{
 	 */
 	public void endRound(){
 		noWinner = false;
+        collectTrash();
 	}
 	
 	
@@ -234,7 +232,17 @@ public class Round{
 	 * busted. 
 	 */
 	public void pickWinner(){
-		if(player.currHandSum() == dealer.currHandSum()){
+		System.out.println("Player hand sum = " + player.currHandSum());
+        System.out.println("Dealer hand sum = " + dealer.currHandSum());
+
+        if(player.currHandSum() > 21){
+            playerWin = false;
+            endRound();
+        } else if (dealer.currHandSum() > 21){
+            playerWin = true;
+            player.win();
+            endRound();
+        } else if(player.currHandSum() == dealer.currHandSum()){
 			playerWin = false;
 			tie = true;
 			player.refund();
