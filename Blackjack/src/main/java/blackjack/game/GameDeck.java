@@ -1,19 +1,17 @@
 package blackjack.game;
 /**
- * @filename GameDeck.java
  * @author Alex Euzent
- * @date 7/15/2014
- * @purpose Blackjack Game
+ * @since 1.8
+ * Maintains a deck of Card objects
  */
 import java.util.*;
 
 
-public class GameDeck{
+class GameDeck{
 	
 	private ArrayDeque<Card> deck;
 	private ArrayList<Card> trash;
-	
-	
+
 	/**
 	 * Constructor for GameDeck
 	 */
@@ -36,7 +34,7 @@ public class GameDeck{
 	 * Removes  and returns card 
 	 * from top of deck. Shuffles cards
 	 * if none left. 
-	 * @return
+	 * @return Card taken from the top of the deck
 	 */
 	public Card getCard(){
 		if(!deck.isEmpty()){
@@ -50,7 +48,7 @@ public class GameDeck{
 	
 	/**
 	 * Returns card to the deck
-	 * @param card
+	 * @param card Card to be returned to the deck
 	 */
 	public void returnCard(Card card){
 		trash.add(card);
@@ -65,9 +63,6 @@ public class GameDeck{
 		for(Card current : trash){
 			deck.addFirst(current);
 		}
-
 		trash.clear();
 	}
-	
-	
 }

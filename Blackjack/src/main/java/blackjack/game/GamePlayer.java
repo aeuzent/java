@@ -1,17 +1,18 @@
 package blackjack.game;
 /**
- * @filename GamePlayer.java
  * @author Alex Euzent
- * @date 7/15/2014
- * @purpose Blackjack Game
+ * @since 1.8
+ * Object represents the user and
+ * maintains all values and cards
+ * related to play.
  */
 import java.util.*;
 
-public class GamePlayer{
+class GamePlayer{
 
-	private transient Hand hand;
+	private Hand hand;
 	private double score;
-	private transient int currBet, activeBet;
+	private int currBet, activeBet;
 	
 	
 	/**
@@ -29,7 +30,8 @@ public class GamePlayer{
 	/**
 	 * Constructor for player that
 	 * loads previous score
-	 * @param score
+	 * @param score Sets player score to
+     *              passed value
 	 */
 	public GamePlayer(double score) {
 		hand = new Hand();
@@ -43,16 +45,16 @@ public class GamePlayer{
 	/**
 	 * Returns a copy of cards
 	 * currently in hand
-	 * @return ArrayList<Card>
+	 * @return ArrayList<Card> Card in users hand
 	 */
 	public ArrayList<Card> showHand(){
-		return hand.showCards();
+		return new ArrayList<Card>(hand.showCards());
 	}
 	
 	
 	/**
 	 * Returns current hand sum
-	 * @return int
+	 * @return int Score value of cards in hand
 	 */
 	public int currHandSum(){
 		return hand.getHandSum();
@@ -61,7 +63,7 @@ public class GamePlayer{
 	
 	/**
 	 * Accessor for player score
-	 * @return double
+	 * @return double Current player score
 	 */
 	public double getScore(){
 		return score;
@@ -71,7 +73,7 @@ public class GamePlayer{
 	/**
 	 * Accessor for currently
 	 * selected bet amount
-	 * @return int
+	 * @return int Current selected bet value
 	 */
 	public int getCurrentBet(){
 		return currBet;
@@ -81,7 +83,7 @@ public class GamePlayer{
 	/**
 	 * Returns amount that is 
 	 * currently being bet
-	 * @return int
+	 * @return int Current committed bet value
 	 */
 	public int getActiveBet(){
 		return activeBet;
@@ -92,7 +94,7 @@ public class GamePlayer{
 	 * Makes opening bet at the start
 	 * of a round. Returns false if 
 	 * player lacks score to make bet
-	 * @return boolean
+	 * @return boolean True if player has score to play
 	 */
 	public boolean anteUp(){
 		boolean done = false;
@@ -136,7 +138,8 @@ public class GamePlayer{
 	 * Commits current selected bet as
 	 * an active bet. Returns false if 
 	 * player lacks score to make bet
-	 * @return boolean
+	 * @return boolean True if player has score
+     * to make selected bet
 	 */
 	public boolean commitBet(){
 		boolean done = false;
@@ -151,7 +154,7 @@ public class GamePlayer{
 	
 	/**
 	 * Adds a new card to the hand
-	 * @param card
+	 * @param card Card to be added to the hand
 	 */
 	public void hit(Card card){
 		hand.addCard(card);
@@ -188,8 +191,9 @@ public class GamePlayer{
 	/**
 	 * Returns all cards to be added back to the deck
 	 * and clears hand
-	 * @return
-	 */
+	 * @return Used for returning current cards to
+     * game deck
+    */
 	public ArrayList<Card> endRound(){
 		ArrayList<Card> temp = new ArrayList<Card>(hand.clearHand());
         activeBet = 0;

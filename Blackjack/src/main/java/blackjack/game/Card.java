@@ -1,10 +1,10 @@
 package blackjack.game;
 
 /**
- * @filename Card.java
  * @author Alex Euzent
- * @date 7/17/2014
- * @purpose Blackjack Game
+ * @since 1.8
+ * Maintains a single Card object
+ * representing a playing card
  */
 
 
@@ -36,7 +36,7 @@ public class Card{
 
 	/**
 	 * Constructor for Card
-	 * @param in
+	 * @param in Generates card from value
 	 */
 	public Card(int in) throws IllegalArgumentException{
         if(in>=0 && in < 52) {
@@ -50,6 +50,8 @@ public class Card{
 
     /**
      * Constructor for Card
+     * @param rank Value for new cards rank
+     * @param suit Value for new cards suit
      */
     public Card(int rank, int suit) throws IllegalArgumentException{
         if(rank>=0 && rank < 13) {
@@ -67,7 +69,7 @@ public class Card{
 
 	/**
 	 * Accessor for card rank
-	 * @return
+	 * @return Cards value for rank
 	 */
 	public int getRank(){
 		return rank;
@@ -76,7 +78,7 @@ public class Card{
 	
 	/**
 	 * Accessor for card suit
-	 * @return
+	 * @return Cards value for suit
 	 */
 	public int getSuit(){
 		return suit;
@@ -85,6 +87,7 @@ public class Card{
 	
 	/**
 	 * Returns card formatted as a string
+     * @return Cards rank and suit written out
 	 */
 	@Override
 	public String toString(){

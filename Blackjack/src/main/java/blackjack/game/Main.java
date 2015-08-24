@@ -8,7 +8,8 @@ package blackjack.game;
 import java.util.*;
 import java.io.*;
 
-public class Main {
+@SuppressWarnings("WeakerAccess")
+class Main {
 
 	
 	public Main(){
@@ -44,10 +45,10 @@ public class Main {
 						//should be done with the preBet method
 						//The value selected will be committed
 						//once a round starts
-				case 1: game.preBet(game.UPBET);
+				case 1: game.preBet(GameEngine.UPBET);
 						break;
 
-				case 2: game.preBet(game.DOWNBET);
+				case 2: game.preBet(GameEngine.DOWNBET);
 						break;
 						
 				case 3: runGame();
@@ -90,25 +91,25 @@ public class Main {
 					//I've written a series of constant ints
 					//that will make calling this function very
 					//easy. 
-			case 1: game.playersTurn(game.UPBET);
+			case 1: game.playersTurn(GameEngine.UPBET);
 					break;
 
-			case 2: game.playersTurn(game.DOWNBET);
+			case 2: game.playersTurn(GameEngine.DOWNBET);
 					break;
 					
 			case 3: //The whole playersTurn method is now a boolean but commiting
 					//a bet is the only place it can fail. This will only happen if 
 					//the player lacks the score to make a bet. Otherwise it will always
 					//return true
-					if(!game.playersTurn(game.GOBET)){
+					if(!game.playersTurn(GameEngine.GOBET)){
 						System.out.println("Player lacks score to make bet");
-					};
+					}
+				break;
+					
+			case 4: game.playersTurn(GameEngine.HIT);
 					break;
 					
-			case 4: game.playersTurn(game.HIT);
-					break;
-					
-			case 5: game.playersTurn(game.STAY);
+			case 5: game.playersTurn(GameEngine.STAY);
 					break;
 					
 			default: //this should handle invalid input

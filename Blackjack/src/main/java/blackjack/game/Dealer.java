@@ -1,14 +1,14 @@
 package blackjack.game;
 
 /**
- * @filename Dealer.java
  * @author Alex Euzent
- * @date 7/15/2014
- * @purpose Blackjack Game
+ * @since 1.8
+ * Object to represent the dealer
+ * and maintain its hand
  */
 import java.util.*;
 
-public class Dealer{
+class Dealer{
 
 	private Hand hand;
 	
@@ -24,16 +24,16 @@ public class Dealer{
 	/**
 	 * Returns a copy of cards
 	 * currently in hand
-	 * @return
+	 * @return Copy of cards in hand
 	 */
 	public ArrayList<Card> showHand(){
-		return hand.showCards();
+		return new ArrayList<Card>(hand.showCards());
 	}
 	
 	
 	/**
 	 * Returns current hand sum
-	 * @return
+	 * @return Score value of cards in hand
 	 */
 	public int currHandSum(){
 		return hand.getHandSum();
@@ -42,7 +42,7 @@ public class Dealer{
 	
 	/**
 	 * Adds a new card to the hand
-	 * @param card
+	 * @param card Card to be added to hand
 	 */
 	public void hit(Card card){
 		hand.addCard(card);
@@ -52,10 +52,9 @@ public class Dealer{
 	/**
 	 * Returns all cards to be added back to the deck
 	 * and clears hand
-	 * @return
+	 * @return Used to return cards to the game deck
 	 */
 	public ArrayList<Card> endRound(){
-		ArrayList<Card> temp = new ArrayList<Card>(hand.clearHand());
-		return temp;
+		return hand.clearHand();
 	}
 }

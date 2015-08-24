@@ -1,18 +1,16 @@
 package blackjack.game;
 /**
- * @filename Hand.java
  * @author Alex Euzent
- * @date 7/15/2014
- * @purpose Blackjack Game
+ * @since 1.8
+ * Maintains a hand of Card objects
  */
 import java.util.*;
 
-public class Hand{
+class Hand{
 
 	private ArrayList<Card> hand;
 	private int handSum;
-	
-	
+
 	/**
 	 * Constructor for Hand
 	 */
@@ -24,7 +22,7 @@ public class Hand{
 
 	/**
 	 * Adds card to hand
-	 * @param card
+	 * @param card Card to be added to the hand
 	 */
 	public void addCard(Card card){
 
@@ -100,18 +98,16 @@ public class Hand{
 	
 	/**
 	 * Returns a copy of cards in hand
-	 * @return
+	 * @return Copy of cards in hand
 	 */
 	public ArrayList<Card> showCards(){
-		ArrayList<Card> out = new ArrayList<Card>(hand);
-		
-		return out;
+		return new ArrayList<Card>(hand);
 	}
 	
 	
 	/**
 	 * Returns hand, empties hand and resets hand sum
-	 * @return
+	 * @return Used to return cards to game deck
 	 */
 	public ArrayList<Card> clearHand(){
 		ArrayList<Card> temp = new ArrayList<Card>(hand); 
@@ -123,7 +119,7 @@ public class Hand{
 	
 	/**
 	 * Accessor for hand sum
-	 * @return
+	 * @return Current score value of hand
 	 */
 	public int getHandSum(){
 		return handSum;

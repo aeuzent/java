@@ -69,26 +69,85 @@ public class RoundTest extends TestCase {
 
     @Test
     public void testPlayerHit() throws Exception {
-
+        Card c = new Card(Card.THREE,Card.HEARTS);
+        gp.hit(c);
+        Round rnd = new Round(gp,dlr,gd);
+        int sum = gp.currHandSum();
+        rnd.playerHit();
+        assertTrue("Player did not get new card",sum < gp.currHandSum());
     }
 
+    /* Needs Mock Object to Test
     @Test
     public void testPlayerStay() throws Exception {
 
-    }
+    }*/
 
     @Test
     public void testPlayerBet() throws Exception {
-
+        Round rnd = new Round(gp,dlr,gd);
+        assertTrue("Player should be able to commit bet",rnd.playerBet());
+        rnd.playerStay();
+        assertFalse("Player can't commit bet when it's not their turn", rnd.playerBet());
+        gp = new GamePlayer(3);
+        rnd = new Round(gp,dlr,gd);
+        assertFalse("Player can't commit bet when they lack score to play", rnd.playerBet());
     }
 
     @Test
     public void testPickWinner() throws Exception {
+        Card a = new Card(Card.THREE,Card.CLUBS);
+        Card b = new Card(Card.KING,Card.DIAMONDS);
+        Card c = new Card(Card.JACK,Card.HEARTS);
+        gp.hit(a);
+        gp.hit(b);
+        gp.hit(c);
+        Round rnd = new Round(gp,dlr,gd);
+        rnd.pickWinner();
+        assertFalse("Player should have busted", rnd.didPlayerWin());
+
+        gp = new GamePlayer();
+        dlr = new Dealer();
+        dlr.hit(a);
+        dlr.hit(b);
+        dlr.hit(c);
+        rnd = new Round(gp,dlr,gd);
+        rnd.pickWinner();
+        assertTrue("Dealer should have busted", rnd.didPlayerWin());
+
+        gp = new GamePlayer();
+        dlr = new Dealer();
+        gp.hit(a);
+        gp.hit(b);
+        dlr.hit(c);
+        rnd = new Round(gp,dlr,gd);
+        rnd.pickWinner();
+        assertTrue("Player should win with higher score", rnd.didPlayerWin());
+
+        gp = new GamePlayer();
+        dlr = new Dealer();
+        dlr.hit(a);
+        dlr.hit(b);
+        gp.hit(c);
+        rnd = new Round(gp,dlr,gd);
+        rnd.pickWinner();
+        assertFalse("Dealer should win with higher score", rnd.didPlayerWin());
 
     }
 
+
     @Test
     public void testGameTied() throws Exception {
+        Card a = new Card(Card.THREE,Card.CLUBS);
+        Card b = new Card(Card.KING,Card.DIAMONDS);
+        gp.hit(a);
+        gp.hit(b);
+        dlr.hit(a);
+        dlr.hit(b);
 
+        Round rnd = new Round(gp,dlr,gd);
+        rnd.pickWinner();
+        assertFalse("playerWin should be false in a tie", rnd.didPlayerWin());
+        assertTrue("Game should have tied",rnd.gameTied());
     }
 }
